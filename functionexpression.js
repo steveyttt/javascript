@@ -42,3 +42,33 @@ function closeTerminal (message) {
 }
 
 closeTerminal(greeting);
+
+
+//Setting up a park and rides system
+var parkRides = [["bumpercars", 20], ["rollercoaster", 60], ["bouncy", 30], ["spinner", 15]]
+var fastPassQueue = ["bumpercars", "rollercoaster", "bouncy", "spinner"]
+
+// .shift method outputs the first item in an array 
+// and removes it from the array
+// var firstFastPass = fastPassQueue.shift();
+// console.log(firstFastPass);
+
+function buildTicket (allRides, passRides, pick) {
+    if (passRides[0] == pick ) {
+      var pass = passRides.shift();
+      return function() { console.log("Quick! Youve got a Fast Pass to " + pass + "!");
+      };
+    } else {
+        for (var i = 0; i<allRides.length ; i++ ){
+            if (allRides[i][0] == pick)
+            return function () {console.log("A Ticket is being printed for " + pick + "!\n" + "Your wait time is about " + allRides[i][1] + " minutes")}
+        }
+
+      }
+
+}
+
+var wantsRide = "bumpercars";
+//var ticket = buildTicket(parkRides, fastPassQueue, wantsRide );
+
+buildTicket(parkRides, fastPassQueue, wantsRide )();
