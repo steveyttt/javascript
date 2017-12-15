@@ -20,6 +20,9 @@ console.log(passengers.length);
 //The pop method will remove the last item from an array and return it's value
 console.log(passengers.pop());
 
+//The shift method will remove the first item from an array and return it's value
+console.log(passengers.shift());
+
 console.log(passengers)
 
 //The push method will push a new value into the array
